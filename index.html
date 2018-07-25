@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CKEditor 5 Framework – Quick start</title>
+    </head>
+
+    <div class="editor">
+        <p>Editor content goes here.</p>
+        <figure class="image">
+          <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+  9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
+        </figure>
+    </div>
+
+    <div class="editor">
+        <p>Editor content goes here.</p>
+        asfsfaf
+    </div>
+
+    <script src="dist/ckeditor.js"></script>
+    <script type="text/javascript">
+    var _editor;
+    ClassicEditor.create(document.querySelector(".editor")).then(function(editor) {
+      _editor = editor;
+      var clipboardPlugin = _editor.plugins.get( 'Clipboard' );
+
+      _editor.editing.view.document.on( 'clipboardInput', function ( evt, data ) {
+          if (data.dataTransfer.files.length > 0) {
+      		    var FR= new FileReader();
+              FR.addEventListener("load", function(e) {
+                editor.model.change(function(writer) {
+                    var imageElement = writer.createElement( 'image', {
+                        src: e.target.result
+                    } );
+                    editor.model.insertContent( imageElement, editor.model.document.selection );
+                });
+              });
+              FR.readAsDataURL( data.dataTransfer.files[0] );
+          }
+      });
+    });
+    </script>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "ckeditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^10.0.1",
+    "@ckeditor/ckeditor5-clipboard": "^10.0.1",
+    "@ckeditor/ckeditor5-dev-utils": "^10.0.1",
+    "@ckeditor/ckeditor5-editor-classic": "^10.0.1",
+    "@ckeditor/ckeditor5-essentials": "^10.1.0",
+    "@ckeditor/ckeditor5-paragraph": "^10.0.1",
+    "@ckeditor/ckeditor5-theme-lark": "^10.1.0",
+    "postcss-loader": "^2.1.6",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^3.11.0"
+  }
+}
